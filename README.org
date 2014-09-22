@@ -23,6 +23,14 @@ Supplemental evil-mode key-bindings to Emacs org-mode. This is a work in progres
     (require 'evil-org)
 #+end_src
 
+You can also optionally disable the evil leader key bindings from being
+activated with:
+
+#+begin_src emacs-lisp
+    (setq evil-org-set-leader nil)
+#+end_src
+
+
 * Keys
 Here are the keys introduced by evil-org
 

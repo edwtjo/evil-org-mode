@@ -108,12 +108,22 @@
   "-" 'org-cycle-list-bullet
   (kbd "TAB") 'org-cycle)
 
+;; allow user to unset map
+(defun unset-or-true (symbol)
+  (or (not (boundp symbol)) (symbol-value symbol)))
+
 ;; leader maps
-(evil-leader/set-key
-  "t"  'org-show-todo-tree
-  "a"  'org-agenda
-  "x"  'org-archive-subtree
-)
+(if (unset-or-true 'evil-org-set-leader)
+    (progn
+    (evil-leader/set-key
+      "t"  'org-show-todo-tree
+      "a"  'org-agenda
+      "x"  'org-archive-subtree
+      )
+    (message "bound-evil-leader")
+      )
+  'false
+  )
 
 ;; normal & insert state shortcuts.
 (mapc (lambda (state)
