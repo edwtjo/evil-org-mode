@@ -46,7 +46,6 @@ Here are the keys introduced by evil-org
   | <leader>c | org-archive-subtree                        |
   | <leader>l | evil-org-open-links                        |
   | <leader>o | evil-org-recompute-clocks                  |
-  
   | TAB       | org-cycle                                  |
   | M-l       | org-metaright                              |
   | M-h       | org-metaleft                               |
