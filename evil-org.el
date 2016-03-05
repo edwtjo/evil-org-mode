@@ -178,5 +178,34 @@ FUN function callback"
           ))
       '(normal insert))
 
+;; Text objects for org-mode markup
+;; Wrap the creation of inner and outer text objects and their key mappings
+(defmacro define-and-bind-text-object (key start-regex end-regex)
+  (let ((inner-name (make-symbol "inner-name"))
+        (outer-name (make-symbol "outer-name")))
+    `(progn
+       (evil-define-text-object ,inner-name (count &optional beg end type)
+         (evil-select-paren ,start-regex ,end-regex beg end type count nil))
+       (evil-define-text-object ,outer-name (count &optional beg end type)
+         (evil-select-paren ,start-regex ,end-regex beg end type count t))
+       (define-key evil-inner-text-objects-map ,key (quote ,inner-name))
+       (define-key evil-outer-text-objects-map ,key (quote ,outer-name)))))
+
+;; Shorthand since key and markup delimiters are identified by the same symbol
+(defmacro define-and-bind-text-object-same-symbol (key)
+  `(define-and-bind-text-object ,key ,key ,key))
+
+;; Do the text object creation and mapping for markup symbols
+(define-and-bind-text-object-same-symbol "*")
+(define-and-bind-text-object-same-symbol "/")
+(define-and-bind-text-object-same-symbol "_")
+(define-and-bind-text-object-same-symbol "=")
+(define-and-bind-text-object-same-symbol "~")
+
+;; /italic/ text object interferes with evil-search-forward, so unbind / in
+;; respective evil state
+(eval-after-load "evil-maps"
+  (define-key evil-operator-state-map "/" nil))
+
 (provide 'evil-org)
 ;;; evil-org.el ends here
