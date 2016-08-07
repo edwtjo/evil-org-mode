@@ -143,7 +143,8 @@ FUN function callback"
   "<" 'org-metaleft
   ">" 'org-metaright
   "-" 'org-cycle-list-bullet
-  (kbd "<tab>") 'org-cycle)
+  (kbd "<tab>") 'org-cycle
+  (kbd "TAB") 'org-cycle)
 
 ;; leader maps
 (evil-leader/set-key-for-mode 'org-mode
