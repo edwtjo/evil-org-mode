@@ -1,6 +1,10 @@
 #+TITLE: evil-org-mode
 
-Supplemental evil-mode key-bindings to Emacs org-mode. This is a work in progress, expect improvements and don't be afraid to contribute patches.
+This repo isn't receiving updates anymore, please refer to:
+
+  https://github.com/Somelauw/evil-org-mode
+
+Instead.
 
 * Requirements
 
