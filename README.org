@@ -27,7 +27,8 @@ Instead.
 
 * Keys
 Here are the keys introduced by evil-org
-
+  | Key       | Action                                     |
+  |-----------+--------------------------------------------|
   | gh        | outline-up-heading                         |
   | gj        | org-forward-heading-same-level             |
   | gk        | org-backward-heading-same-level            |
@@ -49,7 +50,6 @@ Here are the keys introduced by evil-org
   | <leader>c | org-archive-subtree                        |
   | <leader>l | evil-org-open-links                        |
   | <leader>o | evil-org-recompute-clocks                  |
-  |-----------+--------------------------------------------|
   | TAB       | org-cycle                                  |
   | M-l       | org-metaright                              |
   | M-h       | org-metaleft                               |
