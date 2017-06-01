@@ -45,7 +45,7 @@
 (defun clever-insert-item ()
   "Clever insertion of org item."
   (if (not (org-in-item-p))
-      (insert "\n")
+    (evil-open-below nil)
     (org-insert-item))
   )
 
